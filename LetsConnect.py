@@ -30,10 +30,20 @@ def client(wifi, ip, text, passw, port):
     print("sent!")
 
 @click.command()
+@click.argument("wifi")
+@click.argument("passw")
 @click.argument("ip")
 @click.argument("port")
-def server(ip, port):
+def server(wifi,passw,ip,port):
     print (f"{ip}|{port}")
+    print("setting up")
+    sta_if=network.WLAN(network.STA_IF)
+    sta_if.active(True)
+    while not sta_if.isconnected():
+        print("connectin")
+        sta_if.connect(wifi,passw)
+        time.sleep(0.5)
+    print("connected")
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
         s.bind((f"{port}",port))
         s.listen()
