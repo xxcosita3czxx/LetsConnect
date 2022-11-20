@@ -15,14 +15,6 @@ def main():
 @click.argument("text")
 def client(wifi, ip, text, passw, port):
     print(f"{wifi}|{ip}|{text}|{passw}|{port}")
-    print("setting up")
-    sta_if=network.WLAN(network.STA_IF)
-    sta_if.active(True)
-    while not sta_if.isconnected():
-        print("connectin")
-        sta_if.connect(wifi,passw)
-        time.sleep(0.5)
-    print("connected")
     time.sleep(1)
     print("sending")
     s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
@@ -36,14 +28,6 @@ def client(wifi, ip, text, passw, port):
 @click.argument("port")
 def server(wifi,passw,ip,port):
     print (f"{ip}|{port}")
-    print("setting up")
-    sta_if=network.WLAN(network.STA_IF)
-    sta_if.active(True)
-    while not sta_if.isconnected():
-        print("connectin")
-        sta_if.connect(wifi,passw)
-        time.sleep(0.5)
-    print("connected")
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
         s.bind((f"{port}",port))
         s.listen()
