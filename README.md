@@ -29,8 +29,27 @@ Install with python
   python3 setup.py install
 ```
 
+## Building
 
-    
+Building is one of the easiest ways to get the tools without installing as
+library. You can build it almost on anything, just make sure there were no
+errors on installing reqs (network, click).
+
+Building windows executable (if you dont trust auto winbuild.bat)
+```batch
+  pip install network
+  pip install click
+  pip install pyinstaller
+  pyinstaller --onefile --clean --add-data LICENSE;. --add-data README.md;. -i assets/images.ico LetsConnect.py
+```
+  Building Linux executable (if you dont trust auto linbuild.sh)
+```bash
+  sudo apt install python3
+  pip install network
+  pip install click
+  pip install pyinstaller
+  pyinstaller --onefile --clean --add-data LICENSE:. --add-data README.md:. -i assets/images.ico LetsConnect.py
+```
 ## Support
 
 For support, join my [discord](́https://discord.gg/EqqHcdRJar) or email me on kokosove18@gmail.com.
