@@ -1,6 +1,5 @@
 #! venv/bin/python
 import socket
-import network
 import click
 
 @click.group()
