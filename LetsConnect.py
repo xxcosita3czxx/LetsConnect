@@ -7,7 +7,7 @@ import click
 def main():
     pass
 
-@click.command
+@click.command()
 @click.argument("wifi")
 @click.argument("passw")
 @click.argument("ip")
