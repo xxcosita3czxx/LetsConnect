@@ -1,5 +1,5 @@
 
-# LetsConnect LAN Tool
+# LetsConnect LAN Tool 1.1
 
 This project was created as a good idea of @IHtDzenda
 
